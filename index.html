@@ -6,26 +6,192 @@
     <!-- 設定響應式視窗大小與初始縮放比例 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 網頁內容簡介說明 -->
-    <meta name="description" content="台中公園歷史、特色、景點導覽與參訪資訊的一頁式網頁外部 CSS 樣式表與相對路徑報導作業">
+    <meta name="description" content="台中公園歷史、特色、景點導覽與參訪資訊的一頁式網頁 CSS 美化報導作業">
     <!-- 作者與學號資訊 -->
     <meta name="author" content="呂學禹 (學號: d1470417)">
     <!-- 搜尋引擎檢索與分享設定 -->
     <meta name="robots" content="index, follow">
-    <!-- Open Graph 社群分享資訊 -->
+    <!-- Open Graph 社群分享資訊 (正式上線前 og:url 需指向真實網址) -->
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_TW">
-    <meta property="og:title" content="台中公園深度報道 - 城市綠洲與百年風華 (外部CSS版)">
-    <meta property="og:description" content="運用外部 CSS 樣式表與相對路徑，深入探索台中公園歷史沿革、湖心亭景點特色與參訪指南。">
+    <meta property="og:title" content="台中公園深度報道 - 城市綠洲與百年風華 (HW06美化版)">
+    <meta property="og:description" content="運用 CSS 樣式美化，深入探索台中公園歷史沿革、湖心亭景點特色與參訪指南。">
     <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/1/15/Taichung_Park_Lake_Hsin_Ting_20120715.jpg">
     <meta property="og:image:alt" content="台中公園湖心亭實景照片">
     <!-- 瀏覽器分頁標題 -->
     <title>台中公園深度報道 - 城市綠洲與百年風華</title>
 
-    <!-- 
-        HW07 重點：使用相對路徑載入外部 CSS 樣式表
-        路徑說明：從本 HTML 檔案所在位置出發，進入同層的 css 子資料夾，讀取 hw07.css。
-    -->
-    <link rel="stylesheet" href="css/hw07.css">
+    <!-- 方法二：在 head 中集中撰寫共用樣式 (style 元素) -->
+    <style>
+        /* 元素選擇器：設定整頁的通用字型、行高、文字顏色與背景色 */
+        body {
+            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
+            line-height: 1.8;
+            color: #333333;
+            background-color: #f7f9f6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 元素選擇器：頁首樣式，帶有綠意主體色與底部邊框 */
+        header {
+            background-color: #eaf2ed;
+            padding: 24px;
+            border-radius: 8px;
+            border-bottom: 4px solid #2f5d44;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #1b3b2b;
+            margin-top: 0;
+            font-size: 2em;
+        }
+
+        h2 {
+            color: #2f5d44;
+            border-left: 5px solid #4a7c59;
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #3a5a40;
+        }
+
+        /* 元素選擇器：導覽列樣式，運用盒子模型與圓角背景 */
+        nav {
+            background-color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 6px;
+            border: 1px solid #d8e2dc;
+            margin-top: 15px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        nav li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        /* 導覽與超連結互動效果：滑鼠移入與鍵盤焦點提示 */
+        a {
+            color: #2f5d44;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover, a:focus-visible {
+            color: #d90429;
+            text-decoration: underline;
+        }
+
+        /* 元素選擇器：主要內容區塊樣式 */
+        main {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 區段與段落留白設定 */
+        section {
+            margin-bottom: 30px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* 圖片與媒體響應式樣式設定：保持比例不變形 */
+        figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        figcaption {
+            font-size: 0.9em;
+            color: #666666;
+            margin-top: 8px;
+        }
+
+        /* 表格 CSS 樣式：取代舊式 border="1"，設定邊框合併與內距 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        caption {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #1b3b2b;
+        }
+
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 10px 14px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e2e8f0;
+            color: #1e293b;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* 嵌入地圖與影片的外觀與比例調整 */
+        iframe {
+            max-width: 100%;
+            border: 0;
+            border-radius: 6px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        /* ID 選擇器：補充區塊 (aside) 的專屬外觀設計 */
+        #supplementary-note {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* 元素選擇器：頁尾區塊設計 */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 0.9em;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+        }
+
+        /* 窄視窗響應式微調 */
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            main { padding: 15px; }
+            h1 { font-size: 1.5em; }
+            nav li { display: block; margin-bottom: 8px; }
+        }
+    </style>
 </head>
 <body id="top">
 
@@ -34,10 +200,10 @@
         <h1>台中公園：百年歷史與城市綠洲的風華再現</h1>
         <p><small>副標題：走訪台灣台中市歷史最悠久的城市綠地與文化地標</small></p>
         
-        <!-- 將原本的行內樣式改為 class="reading-focus" -->
-        <p><strong>作者：</strong>呂學禹 (學號: <mark class="reading-focus">d1470417</mark>) | <strong>更新日期：</strong><time datetime="2026-10-14">2026年10月14日</time></p>
+        <!-- 方法一 (第一處行內樣式)：為學號 mark 標籤設定獨立的背景與文字色 -->
+        <p><strong>作者：</strong>呂學禹 (學號: <mark style="background-color: #e8f5e9; color: #1b5e20; padding: 2px 6px; border-radius: 4px;">d1470417</mark>) | <strong>更新日期：</strong><time datetime="2026-10-14">2026年10月14日</time></p>
         
-        <!-- 2. nav 元素：報導目錄 -->
+        <!-- 2. nav 元素：報導目錄，使用頁內連結對應各個章節的唯一 id -->
         <nav>
             <p><strong>頁內目錄導覽：</strong></p>
             <ul>
@@ -50,19 +216,21 @@
         </nav>
     </header>
 
-    <!-- 3. main 元素：整頁主要內容 -->
+    <!-- 3. main 元素：整頁主要內容，全頁僅有一個 -->
     <main>
-        <!-- 4. article 元素：報導文章 -->
+        <!-- 4. article 元素：可獨立閱讀的完整台中公園報導文章 -->
         <article>
             
             <!-- 第一章節：公園簡介與歷史沿革 -->
             <section id="intro">
                 <h2>一、公園簡介與歷史沿革</h2>
+                <!-- 第一段報導文字 -->
                 <p>台中公園位於台灣台中市北區，是台中市歷史最悠久的公園，設立於日治時期明治33年（1900年）。公園占地約有32.8公頃，園內林木蒼鬱、綠意盎然，不僅是市民日常休閒散步的重要綠地，更是台中市最具代表性的城市歷史地標之一。</p>
+                <!-- 第二段報導文字 -->
                 <p>自創園以來，台中公園見證了整座城市的繁華興替。這裡融合了清代、日治時期的多項重要歷史古蹟與建築，展現出獨特的人文與自然交織景致。對於喜愛歷史文化與慢活漫步的遊客而言，這裡提供了一個遠離都市喧囂的寧靜空間。</p>
                 
-                <!-- 將原本的行內樣式改為 class="route-note" -->
-                <p class="route-note"><strong>歷史小註解：</strong>在日治時期，台中公園是由地方士紳與官方共同籌設。園內最具代表性的建築為湖心亭，建於1908年（明治41年），當時是為了慶祝縱貫鐵路全線通車而舉行慶典所興建的休憩場所，至今仍是台中的精神象徵。</p>
+                <!-- 方法一 (第二處行內樣式)：為歷史小註解段落設定獨立的深綠色與左側邊框 -->
+                <p style="color: #2f5d44; padding-left: 10px; border-left: 3px solid #2f5d44;"><strong>歷史小註解：</strong>在日治時期，台中公園是由地方士紳與官方共同籌設。園內最具代表性的建築為湖心亭，建於1908年（明治41年），當時是為了慶祝縱貫鐵路全線通車而舉行慶典所興建的休憩場所，至今仍是台中的精神象徵。</p>
             </section>
 
             <hr>
@@ -72,12 +240,14 @@
                 <h2>二、園區特色與景點</h2>
                 <p>園區內擁有豐富的自然景觀與人文古蹟，以下為造訪時不可錯過的<strong>核心特色</strong>：</p>
                 
+                <!-- 無序清單：園區三大核心特色 -->
                 <ul>
                     <li><strong>湖心亭：</strong>雙併式的水上尖頂涼亭，座落於日月湖畔，為台中市最具代表性的地標建築。</li>
                     <li><strong>砲台山：</strong>公園內的最高點，海拔約89公尺，同時也是歷史古蹟「望月亭」的所在地。</li>
                     <li><strong>日月湖：</strong>提供划船體驗的親水空間，四周柳樹環繞，景色優美，適合親子同遊。</li>
                 </ul>
 
+                <!-- 7. figure 元素：照片與圖說的整體 -->
                 <figure>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Taichung_Park_Lake_Hsin_Ting_20120715.jpg" alt="台中公園湖心亭遠景實景照片，顯示雙併式涼亭與日月湖風光" width="480">
                     <figcaption>圖一：台中公園湖心亭遠景與日月湖風光（圖片來源：<a href="https://zh.wikipedia.org/wiki/File:Taichung_Park_Lake_Hsin_Ting_20120715.jpg" target="_blank">維基百科共享資源</a>）</figcaption>
@@ -91,6 +261,7 @@
                 <h2>三、設施收費與比較</h2>
                 <p>為了讓讀者規劃行程更便利，以下整理了台中公園周邊常見設施與活動的<strong>收費比較表</strong>：</p>
                 
+                <!-- 有框表格：已移除舊式 border="1"，改由 CSS 設定框線與表頭外觀 -->
                 <table>
                     <caption>台中公園設施與服務收費一覽表</caption>
                     <thead>
@@ -128,6 +299,7 @@
                 <p><strong>公園地址：</strong>403台中市中區公園路37號（鄰近台中車站與中友百貨商圈）</p>
                 <p>若您計畫親自走訪，可參考下方內嵌地圖確認確切位置：</p>
                 
+                <!-- Google 地圖 iframe 嵌入 -->
                 <iframe 
                     width="480" 
                     height="300" 
@@ -136,7 +308,7 @@
                     loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
-                <p>若無法正常顯示地圖，請參考 <a href="https://maps.google.com/?q=24.144818,120.68447" target="_blank">Google Maps 地圖連結</a>。</p>
+                <p>若無法正常顯示地圖，請參考 <a href="https://maps.google.com/?q=24.144818,120.68447" target="_blank">Google Maps 地圖連結</a>（來源：交通部觀光署景點頁與 Google 地圖服務）。</p>
             </section>
 
             <hr>
@@ -145,7 +317,8 @@
             <section id="media-section">
                 <h2>五、影音介紹與參訪建議</h2>
                 
-                <p><strong>推薦的園區漫步順序：</strong></p>
+                <!-- 有序清單：個人規劃的推薦參訪順序 -->
+                <p><strong>推薦的園區漫步順序（此為本人親自規劃之參訪路線）：</strong></p>
                 <ol>
                     <li>第一步：從公園正門（自由路或公園路口）進入，沿著綠蔭大道漫步呼吸新鮮空氣。</li>
                     <li>第二步：前往日月湖畔欣賞湖心亭風光，並可租借腳踏船感受水上風情。</li>
@@ -153,43 +326,7 @@
                 </ol>
 
                 <p><strong>相關影音介紹：</strong></p>
+                <!-- YouTube 影片 iframe 嵌入 -->
                 <iframe width="480" height="270" src="https://www.youtube.com/embed/aoJVBEDyoXo" title="台中公園介紹影片" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                 
-                <!-- 將原本的行內樣式改為 class="media-link-text" 與 class="video-link-highlight" -->
-                <p class="media-link-text">若無法正常顯示嵌入畫面，請參考 <a href="https://www.youtube.com/watch?v=aoJVBEDyoXo" target="_blank" class="video-link-highlight">YouTube 一般影片連結</a>（影片來源：YouTube 平台公開導覽短片）。</p>
-            </section>
-
-            <!-- 5. aside 補充區塊 -->
-            <aside id="supplementary-note">
-                <h3>走讀補充提醒與注意事項</h3>
-                <p>園區屬於開放式歷史空間，樹木繁茂，建議造訪時<strong>做好防蚊準備</strong>。若攜帶孩童參與日月湖划船活動，請務必全程穿戴救生衣並聽從現場工作人員指引以維護安全。</p>
-                
-                <details>
-                    <summary>點擊展開：歷史古蹟維護小常識</summary>
-                    <p>湖心亭與望月亭為珍貴的市定古蹟與歷史建築，參訪拍照時請愛護公物，切勿攀爬或在古蹟本體上塗鴉，共同維護百年文化資產。</p>
-                </details>
-            </aside>
-
-        </article>
-    </main>
-
-    <hr>
-
-    <!-- 8. footer 元素 -->
-    <footer>
-        <p id="references"><strong>資料來源與參考文獻：</strong></p>
-        <ul>
-            <li>文字與歷史來源：台中市政府觀光旅遊局 - 台中公園景點介紹、維基百科「台中公園」條目。</li>
-            <li>圖片來源：維基百科共享資源 - 檔案:Taichung_Park_Lake_Hsin_Ting_20120715.jpg。</li>
-            <li>地圖來源：交通部觀光署景點座標與 Google 地圖服務。</li>
-            <li>影片來源：YouTube 平台台中公園導覽影片（ID: <code>aoJVBEDyoXo</code>）。</li>
-        </ul>
-        
-        <!-- 將原本的行內樣式改為 class="report-disclaimer" -->
-        <p class="report-disclaimer">© 2026 呂學禹 (學號: d1470417) 版權所有。本網頁僅供學術與課程作業使用。</p>
-        
-        <p><a href="#top">回到頁首 ▲</a></p>
-    </footer>
-
-</body>
-</html>
+                <p style="font-size: 0.95em;">若無法正常顯示嵌入畫面，請參考 <a href="https://www.youtube.com/watch?v=aoJVBEDyoXo" target="_blank" style="color: #d90429;">YouTube 一般影片連結</a>（
