@@ -1,0 +1,222 @@
+@charset "UTF-8";
+/* 
+    HW07 外部樣式表 (css/hw07.css)
+    作者：呂學禹 (學號: d1470417)
+    說明：集中管理網頁外觀，包含從 HW06 行內樣式遷移過來的 4 處類別選擇器。
+*/
+
+/* 1. 元素選擇器：全頁基本外觀與盒子模型 */
+body {
+    font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
+    line-height: 1.8;
+    color: #333333;
+    background-color: #f7f9f6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 2. 頁首與標題樣式 */
+header {
+    background-color: #eaf2ed;
+    padding: 24px;
+    border-radius: 8px;
+    border-bottom: 4px solid #2f5d44;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #1b3b2b;
+    margin-top: 0;
+    font-size: 2em;
+}
+
+h2 {
+    color: #2f5d44;
+    border-left: 5px solid #4a7c59;
+    padding-left: 10px;
+    margin-top: 30px;
+}
+
+h3 {
+    color: #3a5a40;
+}
+
+/* 3. 導覽目錄與超連結互動 */
+nav {
+    background-color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 6px;
+    border: 1px solid #d8e2dc;
+    margin-top: 15px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+a {
+    color: #2f5d44;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover, a:focus-visible {
+    color: #d90429;
+    text-decoration: underline;
+}
+
+/* 4. 主要內容區塊 */
+main {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* 5. 圖片與圖說 */
+figure {
+    text-align: center;
+    margin: 20px 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+figcaption {
+    font-size: 0.9em;
+    color: #666666;
+    margin-top: 8px;
+}
+
+/* 6. 表格樣式 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+caption {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #1b3b2b;
+}
+
+th, td {
+    border: 1px solid #cbd5e1;
+    padding: 10px 14px;
+    text-align: left;
+}
+
+th {
+    background-color: #e2e8f0;
+    color: #1e293b;
+}
+
+tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* 7. iframe 嵌入媒體 */
+iframe {
+    max-width: 100%;
+    border: 0;
+    border-radius: 6px;
+    display: block;
+    margin: 10px auto;
+}
+
+/* 8. ID 選擇器：aside 補充區塊 */
+#supplementary-note {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* 9. 頁尾 */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #6c757d;
+    border-top: 1px solid #dee2e6;
+}
+
+/* 
+    ===================================================
+    從 HW06 行內樣式遷移過來的 4 處類別選擇器 (Class)
+    ===================================================
+*/
+
+/* 遷移一：學號 mark 閱讀焦點 */
+.reading-focus {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* 遷移二：歷史小註解左側邊框與內距 */
+.route-note {
+    color: #2f5d44;
+    padding-left: 10px;
+    border-left: 3px solid #2f5d44;
+}
+
+/* 遷移三：影音連結提示文字與強調色 */
+.media-link-text {
+    font-size: 0.95em;
+}
+
+.video-link-highlight {
+    color: #d90429;
+}
+
+/* 遷移四：頁尾版權聲明樣式 */
+.report-disclaimer {
+    font-size: 0.85em;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* 10. 窄視窗 @media 響應式調整 */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    main {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    nav li {
+        display: block;
+        margin-bottom: 8px;
+    }
+}
